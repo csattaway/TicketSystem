@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ticketTrackerModelStoreContainer" CdmEntityContainer="ticketTrackerEntities">
+    <EntitySetMapping Name="tblTickets">
+      <EntityTypeMapping TypeName="ticketTrackerModel.tblTicket">
+        <MappingFragment StoreEntitySet="tblTicket">
+          <ScalarProperty Name="idsTicket" ColumnName="idsTicket" />
+          <ScalarProperty Name="idsSeverityType" ColumnName="idsSeverityType" />
+          <ScalarProperty Name="dtmCreate" ColumnName="dtmCreate" />
+          <ScalarProperty Name="idsUserCreate" ColumnName="idsUserCreate" />
+          <ScalarProperty Name="txtIssue" ColumnName="txtIssue" />
+          <ScalarProperty Name="blnResolved" ColumnName="blnResolved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTicketHistories">
+      <EntityTypeMapping TypeName="ticketTrackerModel.tblTicketHistory">
+        <MappingFragment StoreEntitySet="tblTicketHistory">
+          <ScalarProperty Name="idsTicketHistory" ColumnName="idsTicketHistory" />
+          <ScalarProperty Name="dtmEdit" ColumnName="dtmEdit" />
+          <ScalarProperty Name="idsUser" ColumnName="idsUser" />
+          <ScalarProperty Name="blnResolved" ColumnName="blnResolved" />
+          <ScalarProperty Name="idsTicket" ColumnName="idsTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="ticketTrackerModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="idsUser" ColumnName="idsUser" />
+          <ScalarProperty Name="txtUserName" ColumnName="txtUserName" />
+          <ScalarProperty Name="idsUserType" ColumnName="idsUserType" />
+          <ScalarProperty Name="dtmCreate" ColumnName="dtmCreate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tlkpSeverityTypes">
+      <EntityTypeMapping TypeName="ticketTrackerModel.tlkpSeverityType">
+        <MappingFragment StoreEntitySet="tlkpSeverityType">
+          <ScalarProperty Name="idsSeverityType" ColumnName="idsSeverityType" />
+          <ScalarProperty Name="txtSeverityType" ColumnName="txtSeverityType" />
+          <ScalarProperty Name="dtmCreate" ColumnName="dtmCreate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tlkpUserTypes">
+      <EntityTypeMapping TypeName="ticketTrackerModel.tlkpUserType">
+        <MappingFragment StoreEntitySet="tlkpUserType">
+          <ScalarProperty Name="idsUserType" ColumnName="idsUserType" />
+          <ScalarProperty Name="txtUserType" ColumnName="txtUserType" />
+          <ScalarProperty Name="dtmCreate" ColumnName="dtmCreate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

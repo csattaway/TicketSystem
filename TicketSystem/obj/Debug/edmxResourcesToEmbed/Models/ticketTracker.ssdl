@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ticketTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblTicket">
+    <Key>
+      <PropertyRef Name="idsTicket" />
+    </Key>
+    <Property Name="idsTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idsSeverityType" Type="int" Nullable="false" />
+    <Property Name="dtmCreate" Type="datetime" Nullable="false" />
+    <Property Name="idsUserCreate" Type="int" Nullable="false" />
+    <Property Name="txtIssue" Type="varchar(max)" Nullable="false" />
+    <Property Name="blnResolved" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTicketHistory">
+    <Key>
+      <PropertyRef Name="idsTicketHistory" />
+    </Key>
+    <Property Name="idsTicketHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dtmEdit" Type="datetime" Nullable="false" />
+    <Property Name="idsUser" Type="int" Nullable="false" />
+    <Property Name="blnResolved" Type="bit" Nullable="false" />
+    <Property Name="idsTicket" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="idsUser" />
+    </Key>
+    <Property Name="idsUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txtUserName" Type="varchar" MaxLength="50" />
+    <Property Name="idsUserType" Type="int" Nullable="false" />
+    <Property Name="dtmCreate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tlkpSeverityType">
+    <Key>
+      <PropertyRef Name="idsSeverityType" />
+    </Key>
+    <Property Name="idsSeverityType" Type="int" Nullable="false" />
+    <Property Name="txtSeverityType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dtmCreate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tlkpUserType">
+    <Key>
+      <PropertyRef Name="idsUserType" />
+    </Key>
+    <Property Name="idsUserType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txtUserType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dtmCreate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblTicket_tblUser">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblTicket" Type="Self.tblTicket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="idsUser" />
+      </Principal>
+      <Dependent Role="tblTicket">
+        <PropertyRef Name="idsUserCreate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTicket_tlkpSeverityType">
+    <End Role="tlkpSeverityType" Type="Self.tlkpSeverityType" Multiplicity="1" />
+    <End Role="tblTicket" Type="Self.tblTicket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tlkpSeverityType">
+        <PropertyRef Name="idsSeverityType" />
+      </Principal>
+      <Dependent Role="tblTicket">
+        <PropertyRef Name="idsSeverityType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTicketHistory_tblTicket">
+    <End Role="tblTicket" Type="Self.tblTicket" Multiplicity="1" />
+    <End Role="tblTicketHistory" Type="Self.tblTicketHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTicket">
+        <PropertyRef Name="idsTicket" />
+      </Principal>
+      <Dependent Role="tblTicketHistory">
+        <PropertyRef Name="idsTicket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTicketHistory_tblUser">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblTicketHistory" Type="Self.tblTicketHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="idsUser" />
+      </Principal>
+      <Dependent Role="tblTicketHistory">
+        <PropertyRef Name="idsUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUser_tlkpUserType">
+    <End Role="tlkpUserType" Type="Self.tlkpUserType" Multiplicity="1" />
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tlkpUserType">
+        <PropertyRef Name="idsUserType" />
+      </Principal>
+      <Dependent Role="tblUser">
+        <PropertyRef Name="idsUserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ticketTrackerModelStoreContainer">
+    <EntitySet Name="tblTicket" EntityType="Self.tblTicket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTicketHistory" EntityType="Self.tblTicketHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tlkpSeverityType" EntityType="Self.tlkpSeverityType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tlkpUserType" EntityType="Self.tlkpUserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblTicket_tblUser" Association="Self.FK_tblTicket_tblUser">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblTicket" EntitySet="tblTicket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTicket_tlkpSeverityType" Association="Self.FK_tblTicket_tlkpSeverityType">
+      <End Role="tlkpSeverityType" EntitySet="tlkpSeverityType" />
+      <End Role="tblTicket" EntitySet="tblTicket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTicketHistory_tblTicket" Association="Self.FK_tblTicketHistory_tblTicket">
+      <End Role="tblTicket" EntitySet="tblTicket" />
+      <End Role="tblTicketHistory" EntitySet="tblTicketHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTicketHistory_tblUser" Association="Self.FK_tblTicketHistory_tblUser">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblTicketHistory" EntitySet="tblTicketHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUser_tlkpUserType" Association="Self.FK_tblUser_tlkpUserType">
+      <End Role="tlkpUserType" EntitySet="tlkpUserType" />
+      <End Role="tblUser" EntitySet="tblUser" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

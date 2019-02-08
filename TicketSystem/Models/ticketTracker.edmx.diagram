@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d8902e03f64d43849e0e0fdf8026ded6" Name="Diagram1">
+        <EntityTypeShape EntityType="ticketTrackerModel.tblTicket" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ticketTrackerModel.tblTicketHistory" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ticketTrackerModel.tblUser" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ticketTrackerModel.tlkpSeverityType" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ticketTrackerModel.tlkpUserType" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="ticketTrackerModel.FK_tblTicket_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ticketTrackerModel.FK_tblTicket_tlkpSeverityType" ManuallyRouted="false" />
+        <AssociationConnector Association="ticketTrackerModel.FK_tblTicketHistory_tblTicket" ManuallyRouted="false" />
+        <AssociationConnector Association="ticketTrackerModel.FK_tblTicketHistory_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ticketTrackerModel.FK_tblUser_tlkpUserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

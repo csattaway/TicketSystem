@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TicketSystem.Models.tblUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.txtUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtmCreate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tlkpUserType.txtUserType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.txtUserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtmCreate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tlkpUserType.txtUserType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idsUser }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idsUser }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idsUser })
+        </td>
+    </tr>
+}
+
+</table>
