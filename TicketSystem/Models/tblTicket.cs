@@ -11,7 +11,11 @@ namespace TicketSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.CompilerServices;
+    using System.Web.Mvc;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblTicket
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +23,20 @@ namespace TicketSystem.Models
         {
             this.tblTicketHistories = new HashSet<tblTicketHistory>();
         }
-    
+
+        public tblTicket(int intConstructorNumber)
+        {
+            this.tblTicketHistories = new HashSet<tblTicketHistory>();
+        }
+
+        public string formattedDate { get; set; }
+
         public int idsTicket { get; set; }
         public int idsSeverityType { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime dtmCreate { get; set; }
+
         public int idsUserCreate { get; set; }
         public string txtIssue { get; set; }
         public bool blnResolved { get; set; }

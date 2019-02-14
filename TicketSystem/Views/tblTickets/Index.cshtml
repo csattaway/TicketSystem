@@ -1,49 +1,59 @@
 ﻿@model IEnumerable<TicketSystem.Models.tblTicket>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Open";
 }
+<h3>Open Tickets</h3>
+<br />
+<br />
+@if (User.Identity.Name.ToString() == "")
+{
+    <p>You must be logged in to view this page</p>
+}
+else
+{
 
-<h2>Index</h2>
+
+@*<h2>Index</h2>*@
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <ul style="width: 100%">
+        <li class="spacingButtons">@Html.ActionLink("Create New", "Create", null, new { @class = "ticketButtons" })</li>
+        <li class="spacingButtons">@Html.ActionLink("Show Only Critical", "criticalSeverity", null, new { @class = "ticketButtons" })</li>
+        <li class="spacingButtons">@Html.ActionLink("Show Only Moderate", "moderateSeverity", null, new { @class = "ticketButtons" })</li>
+        <li class="spacingButtons">@Html.ActionLink("Sort by most recent", "mostRecent", null, new { @class = "ticketButtons" })</li>
+        <li class="spacingButtons">@Html.ActionLink("Sort by oldest first", "oldestFirst", null, new { @class = "ticketButtons" })</li>
+    </ul>
+    <br />
+
 </p>
-<table class="table">
+
+
+<table id="sortedTable" class="table">
     <tr>
         <th>
-            @*@Html.DisplayNameFor(model => model.dtmCreate)*@
             Created
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.txtIssue)*@
             Issue
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.blnResolved)*@
-            Resolved?
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.tblUser.txtUserName)*@
             User Name
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.tlkpSeverityType.txtSeverityType)*@
             Severity
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.dtmCreate)
         </td>
-        <td>
+        <td style="width: 400px">
             @Html.DisplayFor(modelItem => item.txtIssue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.blnResolved)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.tblUser.txtUserName)
@@ -51,12 +61,24 @@
         <td>
             @Html.DisplayFor(modelItem => item.tlkpSeverityType.txtSeverityType)
         </td>
+@if (User.Identity.Name.ToString() == "csattaway@gmail.com")
+{
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idsTicket }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idsTicket }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idsTicket })
+            @Html.ActionLink("Edit", "Edit", new { id = item.idsTicket }) |
+            @Html.ActionLink("Details", "Details", new { id = item.idsTicket }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.idsTicket })
         </td>
+}
     </tr>
 }
 
 </table>
+}
+<br />
+<br />
+
+<br />
+<br />
+
+
+

@@ -1,0 +1,66 @@
+﻿@model TicketSystem.Models.tblTicket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@if (User.Identity.Name.ToString() == "")
+{<p>You must be logged in to view this</p>
+<br />
+<br />
+@Html.ActionLink("Back to List", "Index")
+}
+else
+{
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Created
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtmCreate)
+        </dd>
+
+        <dt>
+            Issue
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txtIssue)
+        </dd>
+
+        <dt>
+            Resolved?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blnResolved)
+        </dd>
+
+        <dt>
+            User Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblUser.txtUserName)
+        </dd>
+
+        <dt>
+            Severity
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tlkpSeverityType.txtSeverityType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idsTicket }) 
+    <br />
+    @Html.ActionLink("Back to Tickets", "Index")
+</p>
+}

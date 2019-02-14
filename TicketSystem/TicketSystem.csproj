@@ -198,13 +198,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CriticalTicketsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\tblTicketHistoriesController.cs" />
+    <Compile Include="Controllers\ModerateController.cs" />
+    <Compile Include="Controllers\ResolvedTicketController.cs" />
+    <Compile Include="Controllers\extraneous\tblTicketHistoriesController.cs" />
     <Compile Include="Controllers\tblTicketsController.cs" />
-    <Compile Include="Controllers\tblUsersController.cs" />
-    <Compile Include="Controllers\tlkpSeverityTypesController.cs" />
-    <Compile Include="Controllers\tlkpUserTypesController.cs" />
+    <Compile Include="Controllers\extraneous\tblUsersController.cs" />
+    <Compile Include="Controllers\extraneous\tlkpSeverityTypesController.cs" />
+    <Compile Include="Controllers\extraneous\tlkpUserTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,6 +250,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ticketTracker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -326,26 +330,16 @@
     <Content Include="Views\tblTickets\Details.cshtml" />
     <Content Include="Views\tblTickets\Edit.cshtml" />
     <Content Include="Views\tblTickets\Index.cshtml" />
-    <Content Include="Views\tblTicketHistories\Create.cshtml" />
-    <Content Include="Views\tblTicketHistories\Delete.cshtml" />
-    <Content Include="Views\tblTicketHistories\Details.cshtml" />
-    <Content Include="Views\tblTicketHistories\Edit.cshtml" />
-    <Content Include="Views\tblTicketHistories\Index.cshtml" />
-    <Content Include="Views\tblUsers\Create.cshtml" />
-    <Content Include="Views\tblUsers\Delete.cshtml" />
-    <Content Include="Views\tblUsers\Details.cshtml" />
-    <Content Include="Views\tblUsers\Edit.cshtml" />
-    <Content Include="Views\tblUsers\Index.cshtml" />
-    <Content Include="Views\tlkpSeverityTypes\Create.cshtml" />
-    <Content Include="Views\tlkpSeverityTypes\Delete.cshtml" />
-    <Content Include="Views\tlkpSeverityTypes\Details.cshtml" />
-    <Content Include="Views\tlkpSeverityTypes\Edit.cshtml" />
-    <Content Include="Views\tlkpSeverityTypes\Index.cshtml" />
-    <Content Include="Views\tlkpUserTypes\Create.cshtml" />
-    <Content Include="Views\tlkpUserTypes\Delete.cshtml" />
-    <Content Include="Views\tlkpUserTypes\Details.cshtml" />
-    <Content Include="Views\tlkpUserTypes\Edit.cshtml" />
-    <Content Include="Views\tlkpUserTypes\Index.cshtml" />
+    <Content Include="Views\ResolvedTicket\Create.cshtml" />
+    <Content Include="Views\ResolvedTicket\Delete.cshtml" />
+    <Content Include="Views\ResolvedTicket\Details.cshtml" />
+    <Content Include="Views\ResolvedTicket\Edit.cshtml" />
+    <Content Include="Views\ResolvedTicket\Index.cshtml" />
+    <Content Include="Views\mostRecent.cshtml" />
+    <Content Include="Views\tblTickets\oldestFirst.cshtml" />
+    <Content Include="Views\tblTickets\mostRecent.cshtml" />
+    <Content Include="Views\tblTickets\moderateSeverity.cshtml" />
+    <Content Include="Views\tblTickets\criticalSeverity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

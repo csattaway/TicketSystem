@@ -77,6 +77,6 @@ C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\bin\Microsoft.Owin.Securi
 C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\obj\Debug\TicketSystem.csprojResolveAssemblyReference.cache
 C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\obj\Debug\TicketSystem.dll
 C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\obj\Debug\TicketSystem.pdb
+C:\Users\Chris\Desktop\Take2\TicketSystem\TicketSystem\obj\Debug\TicketSystem.csprojResolveAssemblyReference.cache

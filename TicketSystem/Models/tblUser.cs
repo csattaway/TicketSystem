@@ -11,8 +11,10 @@ namespace TicketSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class tblUser
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+
+    public partial class tblUser : DbContext
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblUser()

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TicketSystem.Models.tblTicket>
+@{
+    ViewBag.Title = "criticalSeverity";
+}
+@if (User.Identity.Name.ToString() == "")
+{
+    <p>You must be logged in to view this page</p>
+}
+else
+{
+
+
+    <h2>Critical tickets</h2>
+
+    <table id="sortedTable" class="table">
+        <tr>
+            <th>
+                Created
+            </th>
+            <th>
+                Issue
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Severity
+            </th>
+            <th></th>
+        </tr>
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.dtmCreate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.txtIssue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblUser.txtUserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tlkpSeverityType.txtSeverityType)
+                </td>
+@if (User.Identity.Name.ToString() == "csattaway@gmail.com")
+{
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idsTicket }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.idsTicket }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idsTicket })
+                </td>
+}
+            </tr>
+        }
+    </table>
+    <div>
+        @Html.ActionLink("Back to Tickets", "Index")
+    </div>
+}

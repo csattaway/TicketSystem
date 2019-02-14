@@ -5,20 +5,19 @@
 }
 
 <h2>Edit</h2>
-
-
 @using (Html.BeginForm())
 {
+if (User.Identity.Name.ToString() == "csattaway@gmail.com")
+{
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>tblTicket</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.idsTicket)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idsSeverityType, "idsSeverityType", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.idsSeverityType, "Severity", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idsSeverityType", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idsSeverityType, "", new { @class = "text-danger" })
@@ -26,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.dtmCreate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.dtmCreate, "Current date (mm/dd/yyyy)", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.dtmCreate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.dtmCreate, "", new { @class = "text-danger" })
@@ -34,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idsUserCreate, "idsUserCreate", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.idsUserCreate, "User Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idsUserCreate", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idsUserCreate, "", new { @class = "text-danger" })
@@ -42,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.txtIssue, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.txtIssue, "Issue", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.txtIssue, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.txtIssue, "", new { @class = "text-danger" })
@@ -50,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.blnResolved, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.blnResolved, "Issue Resolved?", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.blnResolved)
@@ -65,10 +64,15 @@
             </div>
         </div>
     </div>
+} else 
+{
+    <p>You are not authorized to edit open tickets</p>
+}
 }
 
+
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Tickets", "Index")
 </div>
 
 @section Scripts {

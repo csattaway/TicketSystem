@@ -1,0 +1,10 @@
+﻿body {
+}
+
+.ticketButtons{
+    border: orange solid 1px; background-color: orange; color: black; padding: 2px; border-radius: 5px;
+}
+
+
+
+.spacingButtons{ margin-left: 20px; display: inline;}

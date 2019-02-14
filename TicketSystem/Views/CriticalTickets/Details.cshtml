@@ -1,0 +1,58 @@
+﻿@model TicketSystem.Models.tblTicket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblTicket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dtmCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtmCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txtIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txtIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.blnResolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blnResolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblUser.txtUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblUser.txtUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tlkpSeverityType.txtSeverityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tlkpSeverityType.txtSeverityType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idsTicket }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
